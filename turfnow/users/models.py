@@ -7,6 +7,7 @@ class CustomUser(AbstractUser):
         ('turf_owner', 'Turf Owner'),
         ('admin', 'Admin'),
     )
+    phone = models.CharField(max_length=12,default="0")
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='player')
 
     def __str__(self):

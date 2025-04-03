@@ -12,6 +12,19 @@ from django.contrib.auth.models import update_last_login
 User = get_user_model()
 
 # Create your views here.
+
+class GetUserView(APIView):
+    permission_classes = [IsAuthenticated]  # Restrict access to authenticated users only
+
+    def get(self, request):
+        user = request.user  # Get authenticated user
+        return Response({
+            "id": user.id,
+            "username": user.username,
+            "email": user.email,
+            "role": user.role if hasattr(user, 'role') else None,  # Include role if exists
+            "date_joined": user.date_joined
+        })
 class RegisterView(APIView):
     permission_classes = [AllowAny]
 
@@ -31,7 +44,7 @@ class LoginView(APIView):
             username = serializer.validated_data['username']
             password = serializer.validated_data['password']
             user = authenticate(username=username, password=password)
-
+            print(user)
             if user:
                 refresh = RefreshToken.for_user(user)
                 update_last_login(None, user)

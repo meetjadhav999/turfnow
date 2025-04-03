@@ -14,11 +14,11 @@ class Turf(models.Model):
     location = models.CharField(max_length=255)
     sport_type = models.CharField(max_length=20, choices=SPORTS_CHOICES)
     price_per_hour = models.DecimalField(max_digits=10, decimal_places=2)
-    rating = models.FloatField(default=0.0)
+    rating = models.FloatField(default=0.0,blank=True)
     image = models.ImageField(upload_to="turfs/", blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="turfs")
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="turfs",blank=True)
 
     def __str__(self):
         return f"{self.name} - {self.location} ({self.sport_type})"

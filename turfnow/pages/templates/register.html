@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | TurfNow</title>
+    <title>Sign up | TurfNow</title>
     <link rel="stylesheet" href="{% static 'css/login.css'%}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 
@@ -16,31 +16,47 @@
             <div class="logo">
                 <img src="{%static 'images/TurfNowLogo.png'%}">
             </div>
-            
+                  
             <div class="form-box">
-                <h2>Login to Your Account</h2>
-                <p class="subtitle">Welcome back! Please enter your details</p>
-                    <p class="error-msg" id="error-msg"></p>
+                <h2>Create an Account</h2>
+                <p class="subtitle">Join TurfBook to book your favorite turf</p>
+                <p class="error-msg" id="error-msg"></p>
 
+                
                     <div class="input-group">
                         <label for="username">Username</label>
                         <input type="text" id="username" name="username" placeholder="Enter your username" required>
                     </div>
                     
                     <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    
+                    <div class="input-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <input type="password" id="password" name="password" placeholder="Create a password" required>
+                        <small class="password-hint">Must be at least 8 characters</small>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
                     </div>
                     
                     <div class="options">
                         <div class="remember">
-                            <input type="checkbox" id="remember" name="remember">
-                            <label for="remember">Remember me</label>
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
                         </div>
-                        <a href="#" class="forgot">Forgot password?</a>
                     </div>
                     
-                    <button type="submit" onclick="loginUser()" class="btn-primary" id="signin-btn">Sign In</button>
+                    <button type="button" onclick="registerUser()" id="signup-btn" class="btn-primary">Sign Up</button>
                     
                     <div class="divider">
                         <span>or</span>
@@ -48,10 +64,11 @@
                     
                     <button type="button" class="btn-secondary">
                         <span class="google-icon"></span>
-                        Sign in with Google
+                        Sign up with Google
                     </button>
+                
                 <p class="signup-link">
-                    Don't have an account? <a href="register.html">Sign up</a>
+                    Already have an account? <a href="login.html">Sign in</a>
                 </p>
             </div>
         </div>
@@ -60,7 +77,6 @@
             <div class="overlay"></div>
         </div>
     </div>
-
     <script src="{% static 'js/auth.js'%}"></script>
     <script src="{% static 'js/token.js'%}"></script>
 </body>

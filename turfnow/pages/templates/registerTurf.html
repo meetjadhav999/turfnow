@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TurfNow | List Your Turf</title>
+    <link rel="stylesheet" href="{% static 'css/registerturf.css'%}">
+    <link rel="stylesheet" href="{% static 'css/homepage.css'%}">
+
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+          <div class="logo">
+            <span>Turfnow</span>
+          </div>
+          <nav class="main-nav">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="#">Find Turf</a></li>
+              <li><a href="#">How It Works</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="auth-buttons">
+            <div id="btn-container">
+            </div>
+            
+            <button class="mobile-menu-btn">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+  
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Add New Turf</h2>
+                <p class="card-description">Fill in the details to list your sports turf for booking</p>
+            </div>
+            <div class="card-content">
+                <form id="turfForm" class="form">
+                    <div class="form-grid">
+                        <div class="form-item">
+                            <label for="name" class="form-label">Turf Name</label>
+                            <div class="form-control">
+                                <input id="name" name="name" type="text" placeholder="Enter turf name" class="form-input" required>
+                            </div>
+                            <div class="form-message" id="name-error"></div>
+                        </div>
+                        
+                        <div class="form-item">
+                            <label for="location" class="form-label">Location</label>
+                            <div class="form-control">
+                                <input id="location" name="location" type="text" placeholder="Enter location" class="form-input" required>
+                            </div>
+                            <div class="form-message" id="location-error"></div>
+                        </div>
+                        
+                        <div class="form-item">
+                            <label for="sport_type" class="form-label">Sport Type</label>
+                            <div class="form-control">
+                                <select id="sport_type" name="sport_type" class="form-select" required>
+                                    <option value="" disabled selected>Select a sport</option>
+                                    <option value="football">Football</option>
+                                    <option value="cricket">Cricket</option>
+                                    <option value="badminton">Badminton</option>
+                                    <option value="tennis">Tennis</option>
+                                    <option value="basketball">Basketball</option>
+                                </select>
+                            </div>
+                            <div class="form-message" id="sport_type-error"></div>
+                        </div>
+                        
+                        <div class="form-item">
+                            <label for="price_per_hour" class="form-label">Price per Hour</label>
+                            <div class="form-control">
+                                <input id="price_per_hour" name="price_per_hour" type="number" min="0" step="0.01" class="form-input" required>
+                            </div>
+                            <div class="form-message" id="price_per_hour-error"></div>
+                        </div>
+                        
+                        
+                        <div class="form-item">
+                            <label for="image" class="form-label">Upload Image</label>
+                            <div class="form-control">
+                                <div class="file-upload-container">
+                                    <label for="image-upload" class="file-upload-area">
+                                        <svg class="upload-icon file-upload-icon" viewBox="0 0 24 24">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="17 8 12 3 7 8"></polyline>
+                                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                                        </svg>
+                                        <p class="file-upload-text">
+                                            <span>Click to upload</span> or drag and drop
+                                        </p>
+                                        <p class="file-upload-hint">PNG, JPG, GIF up to 10MB</p>
+                                        <input id="image-upload" name="image" type="file" accept="image/*" class="file-input">
+                                    </label>
+                                    
+                                    <div id="image-preview" class="image-preview">
+                                        <img id="preview-img" src="/placeholder.svg" alt="Preview">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-message" id="image-error"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-item">
+                        <label for="description" class="form-label">Description</label>
+                        <div class="form-control">
+                            <textarea id="description" name="description" placeholder="Enter details about your turf, facilities, amenities, etc." class="form-textarea" rows="4"></textarea>
+                        </div>
+                        <p class="form-description">Provide details that will help users decide to book your turf.</p>
+                        <div class="form-message" id="description-error"></div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button type="submit" id="submit-button" class="button button-primary w-full sm-w-auto">
+                            Add Turf
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/registerTurf.js' %}"></script>
+    <script src="{% static 'js/auth.js' %}"></script>
+    <script src="{% static 'js/token.js' %}"></script>
+
+</body>
+</html>

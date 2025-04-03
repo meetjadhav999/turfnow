@@ -5,9 +5,11 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django.shortcuts import get_object_or_404
 from .models import Turf
 from .serializers import TurfSerializer
+from rest_framework.parsers import MultiPartParser, FormParser
 
 class TurfListCreateAPIView(APIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
+    parser_classes = (MultiPartParser, FormParser)  # Support image uploads
 
     def get(self, request):
         turfs = Turf.objects.all()
@@ -23,17 +25,11 @@ class TurfListCreateAPIView(APIView):
         serializer = TurfSerializer(turfs, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-    def post(self, request):
-        serializer = TurfSerializer(data=request.data)
+    def post(self, request, *args, **kwargs):
+        serializer = TurfSerializer(data=request.data, context={"request": request})
         if serializer.is_valid():
-            user = self.request.user
-            serializer.save(owner=user)
-
-            if user.role != "turf_owner":
-                user.role = "turf_owner"
-                user.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        
+            serializer.save()
+            return Response({"message": "Turf created successfully", "data": serializer.data}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 

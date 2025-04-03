@@ -1,0 +1,328 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TurfBook - Find & Book Sports Turfs</title>
+  <link rel="stylesheet" href="{% static 'css/homepage.css'%}">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-container">
+        <div class="logo">
+          <span>TurfBook</span>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Find Turf</a></li>
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="auth-buttons">
+          <div id="btn-container">
+          </div>
+          
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1>Find & Book the Best Sports Turf Near You!</h1>
+          <p>Real-time availability • Easy bookings • Hassle-free payments</p>
+          
+          <div class="search-container">
+            <div class="search-form">
+              <div class="search-input">
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="text" placeholder="Location">
+              </div>
+              <div class="search-input">
+                <span class="sport-icon">🏏</span>
+                <select>
+                  <option value="" disabled selected>Sport Type</option>
+                  <option value="football">Football</option>
+                  <option value="cricket">Cricket</option>
+                  <option value="basketball">Basketball</option>
+                  <option value="tennis">Tennis</option>
+                </select>
+              </div>
+              <div class="search-input">
+                <i class="far fa-calendar"></i>
+                <input type="date">
+              </div>
+            </div>
+            <button class="btn btn-primary search-btn">
+              <i class="fas fa-search"></i> Find Turf
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Turfs -->
+      <section class="featured-turfs">
+        <div class="section-container">
+          <h2 class="section-title">Featured Turfs</h2>
+          <div class="turf-grid" id="turfs">
+            
+          </div>
+          <div class="view-all">
+            <button class="btn btn-outline-secondary">View All Turfs</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us -->
+      <section class="why-choose-us">
+        <div class="section-container">
+          <h2 class="section-title">Why Choose Us?</h2>
+          <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="far fa-clock"></i>
+              </div>
+              <h3>Real-Time Booking</h3>
+              <p>Book your favorite turf instantly with real-time availability</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <h3>Verified Reviews & Ratings</h3>
+              <p>Make informed decisions with authentic user feedback</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="far fa-credit-card"></i>
+              </div>
+              <h3>Flexible Payment Options</h3>
+              <p>Multiple secure payment methods for your convenience</p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card">
+              <div class="feature-icon">
+                <span class="sports-icon">🏏⚽🏀</span>
+              </div>
+              <h3>Multiple Sports Available</h3>
+              <p>Find turfs for football, cricket, basketball and more</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- User Testimonials -->
+      <section class="testimonials">
+        <div class="section-container">
+          <h2 class="section-title">What Our Users Say</h2>
+          <div class="testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">
+                  <img src="https://via.placeholder.com/50x50?text=R" alt="Rahul Sharma">
+                </div>
+                <div class="testimonial-user">
+                  <h3>Rahul Sharma</h3>
+                  <p>Football Player</p>
+                </div>
+              </div>
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">The best platform to find and book football turfs. Saved me hours of calling around!</p>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">
+                  <img src="https://via.placeholder.com/50x50?text=P" alt="Priya Patel">
+                </div>
+                <div class="testimonial-user">
+                  <h3>Priya Patel</h3>
+                  <p>Cricket Player</p>
+                </div>
+              </div>
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <p class="testimonial-text">Very convenient booking process. The turf was exactly as described in the listing.</p>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">
+                  <img src="https://via.placeholder.com/50x50?text=A" alt="Amit Singh">
+                </div>
+                <div class="testimonial-user">
+                  <h3>Amit Singh</h3>
+                  <p>Basketball Player</p>
+                </div>
+              </div>
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">Great customer service! They helped me reschedule when it rained on our booking day.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works -->
+      <section class="how-it-works">
+        <div class="section-container">
+          <h2 class="section-title">How It Works</h2>
+          <div class="steps-container">
+            <!-- Step 1 -->
+            <div class="step-card">
+              <div class="step-icon">
+                <div class="step-number">1</div>
+                <i class="fas fa-search"></i>
+              </div>
+              <h3>Search for Turf</h3>
+              <p>Find the perfect turf based on location, sport, and amenities</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card">
+              <div class="step-icon">
+                <div class="step-number">2</div>
+                <i class="far fa-calendar"></i>
+              </div>
+              <h3>Select Date & Time</h3>
+              <p>Choose your preferred slot from available timings</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card">
+              <div class="step-icon">
+                <div class="step-number">3</div>
+                <i class="far fa-credit-card"></i>
+              </div>
+              <h3>Confirm & Pay</h3>
+              <p>Secure your booking with easy payment options</p>
+            </div>
+          </div>
+          <div class="cta-center">
+            <button class="btn btn-light">Book Your Turf Now</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="section-container">
+          <h2 class="section-title">Ready to Play?</h2>
+          <p class="cta-text">Join thousands of sports enthusiasts who book turfs through our platform every day</p>
+          <div class="cta-buttons">
+            <button class="btn btn-green">Find a Turf Near You</button>
+            <a href="/register-turf" class="btn btn-outline-secondary">List Your Turf</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <!-- Column 1 -->
+          <div class="footer-column">
+            <h3>TurfBook</h3>
+            <p>The easiest way to find and book sports turfs in your city.</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Find Turf</a></li>
+              <li><a href="#">List Your Turf</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="footer-column">
+            <h3>Support</h3>
+            <ul class="footer-links">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Cancellation Policy</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4 -->
+          <div class="footer-column">
+            <h3>Contact Us</h3>
+            <ul class="contact-info">
+              <li>
+                <i class="fas fa-phone"></i>
+                <span>+91 9876543210</span>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <span>support@turfbook.com</span>
+              </li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Mumbai, India</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; <script>document.write(new Date().getFullYear())</script> TurfBook. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="{% static 'js/homepage.js'%}"></script>
+  <script src="{% static 'js/auth.js'%}"></script>
+
+</body>
+</html>
+

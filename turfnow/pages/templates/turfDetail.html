@@ -1,0 +1,138 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turfnow - Book Your Turf</title>
+    <link rel="stylesheet" href="{% static 'css/turfdetail.css'%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Turfnow</div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Turfs</a></li>
+                <li><a href="#">Bookings</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="turf-details">
+            <div class="turf-image">
+                <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Green Valley Turf">
+            </div>
+            <div class="turf-info">
+                <h1>Green Valley Turf</h1>
+                <div class="info-item">
+                    <span class="label">Location:</span>
+                    <span class="value">123 Sports Avenue, Downtown</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Sport:</span>
+                    <span class="value">Football, Cricket</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Description:</span>
+                    <p class="value">Green Valley Turf is a premium artificial grass field perfect for football and cricket matches. The turf features high-quality synthetic grass, proper drainage system, and floodlights for evening games. Changing rooms and refreshment facilities are available on-site.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="booking-section">
+            <h2>Book Your Slot</h2>
+            <div class="date-selector">
+                <div class="date-nav">
+                    <button class="date-arrow">&lt;</button>
+                    <h3>Today, April 2, 2025</h3>
+                    <button class="date-arrow">&gt;</button>
+                </div>
+            </div>
+
+            <div class="time-slots">
+                <div class="time-slot available">
+                    <span class="time">06:00 AM - 07:00 AM</span>
+                    <span class="status">Available</span>
+                </div>
+                <div class="time-slot booked">
+                    <span class="time">07:00 AM - 08:00 AM</span>
+                    <span class="status">Booked</span>
+                </div>
+                <div class="time-slot booked">
+                    <span class="time">08:00 AM - 09:00 AM</span>
+                    <span class="status">Booked</span>
+                </div>
+                <div class="time-slot available">
+                    <span class="time">09:00 AM - 10:00 AM</span>
+                    <span class="status">Available</span>
+                </div>
+                <div class="time-slot available">
+                    <span class="time">10:00 AM - 11:00 AM</span>
+                    <span class="status">Available</span>
+                </div>
+                <div class="time-slot booked">
+                    <span class="time">11:00 AM - 12:00 PM</span>
+                    <span class="status">Booked</span>
+                </div>
+                <div class="time-slot available">
+                    <span class="time">12:00 PM - 01:00 PM</span>
+                    <span class="status">Available</span>
+                </div>
+                <div class="time-slot available">
+                    <span class="time">01:00 PM - 02:00 PM</span>
+                    <span class="status">Available</span>
+                </div>
+                <div class="time-slot booked">
+                    <span class="time">02:00 PM - 03:00 PM</span>
+                    <span class="status">Booked</span>
+                </div>
+                <div class="time-slot booked">
+                    <span class="time">03:00 PM - 04:00 PM</span>
+                    <span class="status">Booked</span>
+                </div>
+                <div class="time-slot available">
+                    <span class="time">04:00 PM - 05:00 PM</span>
+                    <span class="status">Available</span>
+                </div>
+                <div class="time-slot available">
+                    <span class="time">05:00 PM - 06:00 PM</span>
+                    <span class="status">Available</span>
+                </div>
+                <div class="time-slot booked">
+                    <span class="time">06:00 PM - 07:00 PM</span>
+                    <span class="status">Booked</span>
+                </div>
+                <div class="time-slot booked">
+                    <span class="time">07:00 PM - 08:00 PM</span>
+                    <span class="status">Booked</span>
+                </div>
+                <div class="time-slot available">
+                    <span class="time">08:00 PM - 09:00 PM</span>
+                    <span class="status">Available</span>
+                </div>
+                <div class="time-slot available">
+                    <span class="time">09:00 PM - 10:00 PM</span>
+                    <span class="status">Available</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Turfnow. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="{% static 'js/turfDetail.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turf Owner Dashboard</title>
+  <link rel="stylesheet" href="{% static 'css/dashboard.css'%}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <h1>Turfnow</h1>
+      </div>
+      <div class="header-right">
+        <div class="user-info">
+          <span>meetjadhav</span>
+          <div class="avatar">MJ</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="dashboard-header">
+        <div>
+          <h2>My Turfs</h2>
+          <p class="subtitle">Manage your turf properties and bookings</p>
+        </div>
+        <button id="add-turf-btn" class="btn btn-primary">
+          <i class="fas fa-plus"></i> Add New Turf
+        </button>
+      </div>
+
+      <!-- Turf Form (Hidden by default) -->
+      <div id="turf-form-container" class="card form-card hidden">
+        <h3 id="form-title">Add New Turf</h3>
+        <form id="turf-form">
+          <input type="hidden" id="turf-id">
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">Turf Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter turf name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input type="text" id="location" name="location" placeholder="Enter location" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="sport_type">Sport Type</label>
+              <select id="sport_type" name="sport_type" required>
+                <option value="football">Football</option>
+                <option value="cricket">Cricket</option>
+                <option value="badminton">Badminton</option>
+                <option value="tennis">Tennis</option>
+                <option value="basketball">Basketball</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="price_per_hour">Price per Hour (₹)</label>
+              <input type="number" id="price_per_hour" name="price_per_hour" placeholder="Enter price per hour" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Enter turf description" rows="4"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="image">Image</label>
+            <div class="image-upload">
+              <div class="image-preview" id="image-preview">
+                <img id="preview-img" src="https://via.placeholder.com/100" alt="Turf preview">
+              </div>
+              <input type="file" id="image" name="image" accept="image/*">
+            </div>
+            <p class="help-text">Upload an image of your turf (max 5MB)</p>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" id="cancel-btn" class="btn btn-outline">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Turf</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="tab-btn active" data-filter="all">All Turfs</button>
+        <button class="tab-btn" data-filter="football">Football</button>
+        <button class="tab-btn" data-filter="cricket">Cricket</button>
+        <button class="tab-btn" data-filter="badminton">Badminton</button>
+        <button class="tab-btn" data-filter="tennis">Tennis</button>
+        <button class="tab-btn" data-filter="basketball">Basketball</button>
+      </div>
+
+      <!-- Turfs Grid -->
+      <div id="turfs-container" class="turfs-grid">
+        <!-- Turf cards will be added here dynamically -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state hidden">
+        <div class="empty-icon">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <h3>No turfs found</h3>
+        <p>You don't have any <span id="empty-filter-text"></span> turfs yet. Add your first turf to get started.</p>
+        <button class="btn btn-primary add-turf-empty">
+          <i class="fas fa-plus"></i> Add New Turf
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="delete-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Are you absolutely sure?</h3>
+      </div>
+      <div class="modal-body">
+        <p>This action cannot be undone. This will permanently delete the turf and all associated data.</p>
+      </div>
+      <div class="modal-footer">
+        <button id="cancel-delete" class="btn btn-outline">Cancel</button>
+        <button id="confirm-delete" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'js/dashboard.js'%}"></script>
+</body>
+</html>
+
