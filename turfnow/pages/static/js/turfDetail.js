@@ -53,7 +53,6 @@ async function loadTimeSlots(turfId) {
         const yyyy = today.getFullYear();
         const mm = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
         const dd = String(today.getDate()).padStart(2, '0');
-        console.log(slots.split('-')[0].trim())
         const formattedDate = `${yyyy}-${mm}-${dd}`;
 
         const response = await fetch(`${BOOKING_URL}turf/${turfId}?date=${formattedDate}`);
