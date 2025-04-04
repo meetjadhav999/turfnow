@@ -19,3 +19,9 @@ def dashboard(request):
 
 def turfDetail(request):
     return render(request,'turfDetail.html')
+
+def payment(request):
+    return render(request,'payment.html')
+
+def mybookings(request):
+    return render(request,'mybookings.html')

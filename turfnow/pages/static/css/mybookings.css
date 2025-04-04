@@ -1,0 +1,137 @@
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header styles */
+        title {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        h1 {
+            color: #2d3748;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .date {
+            color: #718096;
+            font-size: 16px;
+        }
+        
+        /* Bookings list styles */
+        .bookings-list {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .booking-item {
+            padding: 20px;
+            border-bottom: 1px solid #edf2f7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .booking-item:last-child {
+            border-bottom: none;
+        }
+        
+        .booking-info {
+            flex: 1;
+        }
+        
+        .turf-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .turf-name a {
+            color: #3182ce;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .turf-name a:hover {
+            color: #2c5282;
+            text-decoration: underline;
+        }
+        
+        .time-slot {
+            color: #4a5568;
+            font-size: 14px;
+        }
+        
+        .booking-status {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .status-confirmed {
+            background-color: #c6f6d5;
+            color: #276749;
+        }
+        
+        .status-pending {
+            background-color: #feebc8;
+            color: #c05621;
+        }
+        
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #718096;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            .booking-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .booking-status {
+                margin-top: 10px;
+                align-self: flex-start;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .date {
+                margin-top: 5px;
+            }
+        }

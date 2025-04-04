@@ -57,20 +57,8 @@ async function loadTurfs() {
 }
 
 
-const showUserOnNavbar = async ()=>{
-  const user = await getUserData();
-  const navdiv = document.getElementById("btn-container")
-  if(!user) {
-    navdiv.innerHTML = `<a href="/login" class="btn btn-outline">Log In</a>
-    <a href="/signup" class="btn btn-primary">Sign Up</a>`
-  }
-  else{
-    navdiv.innerHTML= `<a href="/profile">${user.username}</a>`
-  }
-}
 // Example function for booking a turf
 
-window.onload = ()=>{
+document.addEventListener('DOMContentLoaded',async()=>{
   loadTurfs()
-  showUserOnNavbar()
-};
+})

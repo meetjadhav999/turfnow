@@ -6,45 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turfnow - Book Your Turf</title>
     <link rel="stylesheet" href="{% static 'css/turfdetail.css'%}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">Turfnow</div>
-            <ul class="nav-links">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Turfs</a></li>
-                <li><a href="#">Bookings</a></li>
-                <li><a href="#">Contact</a></li>
+    
+    <header class="header">
+        <div class="header-container">
+          <div class="logo">
+            <span>TurfNow</span>
+          </div>
+          <nav class="main-nav">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="#">Find Turf</a></li>
+              <li><a href="#">How It Works</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+          </nav>
+          <div class="auth-buttons">
+            <div id="btn-container">
             </div>
+            
+            <button class="mobile-menu-btn">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
         </div>
-    </nav>
-
+      </header>
     <main class="container">
         <section class="turf-details">
             <div class="turf-image">
-                <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Green Valley Turf">
+                <img id="turf-imagee">
             </div>
             <div class="turf-info">
-                <h1>Green Valley Turf</h1>
+                <h1 id="turf-name" ></h1>
                 <div class="info-item">
                     <span class="label">Location:</span>
-                    <span class="value">123 Sports Avenue, Downtown</span>
+                    <span class="value" id="turf-location"></span>
                 </div>
                 <div class="info-item">
                     <span class="label">Sport:</span>
-                    <span class="value">Football, Cricket</span>
+                    <span class="value" id="turf-sport"></span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Price:</span>
+                    <span class="value" id="turf-price"></span>
                 </div>
                 <div class="info-item">
                     <span class="label">Description:</span>
-                    <p class="value">Green Valley Turf is a premium artificial grass field perfect for football and cricket matches. The turf features high-quality synthetic grass, proper drainage system, and floodlights for evening games. Changing rooms and refreshment facilities are available on-site.</p>
+                    <p class="value" id="turf-description"></p>
                 </div>
+                
             </div>
         </section>
 
@@ -63,13 +78,13 @@
                     <span class="time">06:00 AM - 07:00 AM</span>
                     <span class="status">Available</span>
                 </div>
-                <div class="time-slot booked">
+                <div class="time-slot available">
                     <span class="time">07:00 AM - 08:00 AM</span>
-                    <span class="status">Booked</span>
+                    <span class="status">Available</span>
                 </div>
-                <div class="time-slot booked">
+                <div class="time-slot available">
                     <span class="time">08:00 AM - 09:00 AM</span>
-                    <span class="status">Booked</span>
+                    <span class="status">Available</span>
                 </div>
                 <div class="time-slot available">
                     <span class="time">09:00 AM - 10:00 AM</span>
@@ -79,9 +94,9 @@
                     <span class="time">10:00 AM - 11:00 AM</span>
                     <span class="status">Available</span>
                 </div>
-                <div class="time-slot booked">
+                <div class="time-slot available">
                     <span class="time">11:00 AM - 12:00 PM</span>
-                    <span class="status">Booked</span>
+                    <span class="status">Available</span>
                 </div>
                 <div class="time-slot available">
                     <span class="time">12:00 PM - 01:00 PM</span>
@@ -91,13 +106,13 @@
                     <span class="time">01:00 PM - 02:00 PM</span>
                     <span class="status">Available</span>
                 </div>
-                <div class="time-slot booked">
+                <div class="time-slot available">
                     <span class="time">02:00 PM - 03:00 PM</span>
-                    <span class="status">Booked</span>
+                    <span class="status">Available</span>
                 </div>
-                <div class="time-slot booked">
+                <div class="time-slot available">
                     <span class="time">03:00 PM - 04:00 PM</span>
-                    <span class="status">Booked</span>
+                    <span class="status">Available</span>
                 </div>
                 <div class="time-slot available">
                     <span class="time">04:00 PM - 05:00 PM</span>
@@ -107,13 +122,13 @@
                     <span class="time">05:00 PM - 06:00 PM</span>
                     <span class="status">Available</span>
                 </div>
-                <div class="time-slot booked">
+                <div class="time-slot available">
                     <span class="time">06:00 PM - 07:00 PM</span>
-                    <span class="status">Booked</span>
+                    <span class="status">Available</span>
                 </div>
-                <div class="time-slot booked">
+                <div class="time-slot available">
                     <span class="time">07:00 PM - 08:00 PM</span>
-                    <span class="status">Booked</span>
+                    <span class="status">Available</span>
                 </div>
                 <div class="time-slot available">
                     <span class="time">08:00 PM - 09:00 PM</span>
@@ -124,15 +139,24 @@
                     <span class="status">Available</span>
                 </div>
             </div>
+            <button id="book-button" class="book-btn">Book</button>
+
+<!-- Modal (Hidden by default) -->
+            <div id="booking-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Confirm Your Booking</h2>
+                    <p><strong>Selected Slots:</strong> <span id="selected-slots"></span></p>
+                    <p><strong>Total Cost:</strong> ₹<span id="total-cost">0</span></p>
+                    <button id="make-payment" class="payment-btn">Make Payment</button>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Turfnow. All rights reserved.</p>
-        </div>
-    </footer>
+
     <script src="{% static 'js/turfDetail.js' %}"></script>
+    <script src="{% static 'js/auth.js' %}"></script>
 
 </body>
 </html>

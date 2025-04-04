@@ -133,3 +133,20 @@ const getUserData = async() =>{
     }
     
 }
+
+
+const showUserOnNavbar = async ()=>{
+    const user = await getUserData();
+    const navdiv = document.getElementById("btn-container")
+    if(!user) {
+      navdiv.innerHTML = `<a href="/login" class="btn btn-outline">Log In</a>
+      <a href="/signup" class="btn btn-primary">Sign Up</a>`
+    }
+    else{
+      navdiv.innerHTML= `<a href="/my-bookings">${user.username}</a>`
+    }
+  }
+
+  window.onload = ()=>{
+    showUserOnNavbar()
+  };

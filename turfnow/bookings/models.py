@@ -1,10 +1,10 @@
 from django.db import models
 from django.conf import settings
 from datetime import timedelta,datetime,date
-
+from turfs.models import Turf
 class Booking(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="bookings")
-    turf = models.ForeignKey("Turf", on_delete=models.CASCADE, related_name="bookings")
+    turf = models.ForeignKey(Turf, on_delete=models.CASCADE, related_name="bookings")
     date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField()

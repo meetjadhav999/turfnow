@@ -14,9 +14,12 @@ from pathlib import Path
 import os
 import dj_database_url
 from dotenv import load_dotenv
+from datetime import timedelta
+
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,6 +34,13 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  # 👈 increase to 60 minutes
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),     # 👈 valid for 7 days
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+}
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,7 +54,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'pages',
     'users',
-    'turfs'
+    'turfs',
+    'bookings'
 ]
 
 MIDDLEWARE = [
