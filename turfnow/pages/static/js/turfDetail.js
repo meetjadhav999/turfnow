@@ -19,12 +19,8 @@ function getAuthToken() {
 
 
 // Load Turf Details
-async function loadTurfDetails() {
-    const turfId = getQueryParam("id");
-    if (!turfId) {
-        alert("Turf ID is missing.");
-        return;
-    }
+async function loadTurfDetails(turfId) {
+    
 
     try {
         const response = await fetch(`${API_URL}/${turfId}/`);
@@ -95,12 +91,79 @@ async function loadTimeSlots(turfId) {
     }
 }
 
+function getFormattedDate() {
+    const today = new Date();
+  
+    const options = {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    };
+  
+    const formattedDate = new Intl.DateTimeFormat('en-US', options).format(today);
+    return `Today, ${formattedDate}`;
+  }
+  
+
+async function fetchAndDisplayRatings(turfId) {
+    try {
+        console.log("whakdj")
+      const response = await fetch(`/api/ratings/${turfId}`);
+      if (!response.ok) throw new Error('Failed to fetch ratings');
+  
+      const ratings = await response.json();
+      const container = document.getElementById('testimonial-container');
+      container.innerHTML = ''; // Clear previous reviews if any
+  
+      ratings.forEach(rating => {
+        const starsHtml = getStarsHtml(rating.rating);
+        console.log(rating)
+        const reviewHtml = `
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-user">
+                <h3>${rating.username}</h3>
+              </div>
+            </div>
+            <div class="testimonial-rating">
+              ${starsHtml}
+            </div>
+            <p class="testimonial-text">${rating.review}</p>
+          </div>
+        `;
+  
+        container.insertAdjacentHTML('beforeend', reviewHtml);
+      });
+  
+    } catch (error) {
+      console.error("Error loading ratings:", error);
+    }
+  }
+  
+  // Helper function to convert numeric rating into star icons
+  function getStarsHtml(rating) {
+    let html = '';
+    for (let i = 1; i <= 5; i++) {
+      html += `<i class="${i <= rating ? 'fas' : 'far'} fa-star"></i>`;
+    }
+    return html;
+  }
+
 
 
 // Load Turf Details on Page Load
 document.addEventListener("DOMContentLoaded",async()=>{
-    const turf = await loadTurfDetails()
-    console.log(turf)
+
+    const turfId = getQueryParam("id");
+    if (!turfId) {
+        alert("Turf ID is missing.");
+        return;
+    }
+
+    document.getElementById('date').innerHTML = getFormattedDate()
+
+    const turf = await loadTurfDetails(turfId)
+    fetchAndDisplayRatings(turfId)
     const bookButton = document.getElementById("book-button");
     const modal = document.getElementById("booking-modal");
     const closeModal = document.querySelector(".close");

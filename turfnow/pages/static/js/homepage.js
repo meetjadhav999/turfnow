@@ -20,10 +20,14 @@ async function loadTurfs() {
             turfList.innerHTML = "no turfs to show"
         }else{
         turfs.forEach(turf => {
+          var image = "/static/images/placeholder.jpg"
+          if(turf.image){
+            image = turf.image
+          }
             const turfCard = `
                 <div class="turf-card">
               <div class="turf-image">
-                <img src="${turf.image}" alt="Turf 1">
+                <img src="${image}" alt="">
               </div>
               <div class="turf-content">
                 <div class="turf-info">

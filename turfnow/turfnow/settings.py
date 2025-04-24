@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     'pages',
     'users',
     'turfs',
-    'bookings'
+    'bookings',
+    'ratings'
 ]
 
 MIDDLEWARE = [

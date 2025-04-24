@@ -114,6 +114,22 @@
             color: #718096;
         }
         
+        .cancel{
+            border: solid 2px rgb(255, 74, 74);
+            color:rgb(255, 79, 79);
+            background-color:white;
+            border-radius:5px;
+            cursor: pointer;
+            padding:5px 7px;
+            font-size:16px;
+            transition:0.4s;
+        }
+        .cancel:hover{
+            background-color: rgb(255, 79, 79);
+            color: white;
+        }
+
+
         /* Responsive styles */
         @media (max-width: 600px) {
             .booking-item {

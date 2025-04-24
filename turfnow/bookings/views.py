@@ -104,3 +104,16 @@ class TurfBookingByDateView(generics.ListAPIView):
             return Response({"error": "Date query parameter is required (YYYY-MM-DD)"}, status=status.HTTP_400_BAD_REQUEST)
 
         return super().get(request, *args, **kwargs)
+
+
+class CancelBookingView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, booking_id):
+        try:
+            booking = Booking.objects.get(id=booking_id, user=request.user)
+            booking.delete()                
+            return Response({"detail": "Booking cancelled successfully."}, status=status.HTTP_200_OK)
+
+        except Booking.DoesNotExist:
+            return Response({"detail": "Booking not found."}, status=status.HTTP_404_NOT_FOUND)

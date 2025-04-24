@@ -7,6 +7,7 @@
     <title>Turfnow - Book Your Turf</title>
     <link rel="stylesheet" href="{% static 'css/turfdetail.css'%}">
     <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 </head>
@@ -67,9 +68,9 @@
             <h2>Book Your Slot</h2>
             <div class="date-selector">
                 <div class="date-nav">
-                    <button class="date-arrow">&lt;</button>
-                    <h3>Today, April 2, 2025</h3>
-                    <button class="date-arrow">&gt;</button>
+                    <!-- <button class="date-arrow">&lt;</button> -->
+                    <h3 id="date"></h3>
+                    <!-- <button class="date-arrow">&gt;</button> -->
                 </div>
             </div>
 
@@ -141,6 +142,26 @@
             </div>
             <button id="book-button" class="book-btn">Book</button>
 
+            <h2 class="section-title">Ratings and Reviews</h2>
+            
+                <div class="testimonials-grid" >
+                    <div class="testimonial-card">
+                        <div class="stars" id="stars">
+                            <span data-rating="1">&#9733;</span>
+                            <span data-rating="2">&#9733;</span>
+                            <span data-rating="3">&#9733;</span>
+                            <span data-rating="4">&#9733;</span>
+                            <span data-rating="5">&#9733;</span>
+                          </div>
+                      
+                        <textarea id="reviewText" placeholder="Write your review here..."></textarea>
+                        <button onclick="submitReview()">Submit Review</button>
+                      </div>
+                    <div id='testimonial-container'></div>
+                    
+                </div>
+
+
 <!-- Modal (Hidden by default) -->
             <div id="booking-modal" class="modal">
                 <div class="modal-content">
@@ -151,12 +172,16 @@
                     <button id="make-payment" class="payment-btn">Make Payment</button>
                 </div>
             </div>
+
+            
         </section>
     </main>
 
 
     <script src="{% static 'js/turfDetail.js' %}"></script>
     <script src="{% static 'js/auth.js' %}"></script>
+    <script src="{% static 'js/ratings.js' %}"></script>
+
 
 </body>
 </html>
